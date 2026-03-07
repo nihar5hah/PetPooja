@@ -1,0 +1,56 @@
+item_id,item_name,category,subcategory,selling_price,food_cost,is_veg,prep_time_min,contribution_margin,margin_pct,gst_rate_pct,status
+ITM046,BBQ Veg Pizza,Main Course,Italian,350,100,Yes,14,250,71.4,5,Active
+ITM047,Mushroom Alfredo Pizza,Main Course,Italian,390,120,Yes,15,270,69.2,5,Active
+ITM048,Spaghetti Aglio Olio,Main Course,Italian,310,85,Yes,13,225,72.6,5,Active
+ITM049,Risotto Primavera,Main Course,Italian,360,105,Yes,16,255,70.8,5,Active
+ITM050,Baked Mac & Cheese,Main Course,Italian,330,95,Yes,15,235,71.2,5,Active
+ITM051,Paneer Burger,Main Course,Fast Food,200,55,Yes,9,145,72.5,5,Active
+ITM052,Aloo Tikki Burger,Main Course,Fast Food,170,45,Yes,8,125,73.5,5,Active
+ITM053,Loaded Cheese Fries,Sides,Fast Food,160,45,Yes,7,115,71.9,5,Active
+ITM054,Potato Wedges,Sides,Fast Food,140,38,Yes,6,102,72.9,5,Active
+ITM055,Falafel Wrap,Main Course,Fast Food,190,55,Yes,9,135,71.1,5,Active
+ITM056,Bean Burrito,Main Course,Mexican,270,80,Yes,12,190,70.3,5,Active
+ITM057,Mexican Veg Rice,Main Course,Mexican,250,70,Yes,11,180,72.0,5,Active
+ITM058,Cheese Quesadilla,Main Course,Mexican,260,75,Yes,11,185,71.2,5,Active
+ITM059,Mexican Nachos,Starter,Mexican,220,65,Yes,10,155,70.5,5,Active
+ITM060,Stuffed Tacos,Main Course,Mexican,240,70,Yes,10,170,70.8,5,Active
+ITM061,Shahi Paneer,Main Course,North Indian,340,95,Yes,16,245,72.1,5,Active
+ITM062,Rajma Masala,Main Course,North Indian,230,55,Yes,13,175,76.1,5,Active
+ITM063,Kadhi Pakora,Main Course,North Indian,220,50,Yes,14,170,77.3,5,Active
+ITM064,Jeera Rice,Main Course,North Indian,200,50,Yes,12,150,75.0,5,Active
+ITM065,Butter Naan,Sides,North Indian,60,14,Yes,6,46,76.7,5,Active
+ITM066,Rava Dosa,Main Course,South Indian,190,42,Yes,12,148,77.9,5,Active
+ITM067,Set Dosa,Main Course,South Indian,170,38,Yes,10,132,77.6,5,Active
+ITM068,Curd Rice,Main Course,South Indian,160,35,Yes,9,125,78.1,5,Active
+ITM069,Sambar Vada,Starter,South Indian,150,32,Yes,9,118,78.7,5,Active
+ITM070,Onion Uttapam,Main Course,South Indian,190,42,Yes,12,148,77.9,5,Active
+ITM071,Schezwan Noodles,Main Course,Asian,240,70,Yes,12,170,70.8,5,Active
+ITM072,Singapore Noodles,Main Course,Asian,250,72,Yes,12,178,71.2,5,Active
+ITM073,Chilli Potato,Starter,Asian,210,60,Yes,10,150,71.4,5,Active
+ITM074,Crispy Corn,Starter,Asian,220,62,Yes,10,158,71.8,5,Active
+ITM075,Veg Momos,Starter,Asian,200,55,Yes,10,145,72.5,5,Active
+ITM076,Iced Tea,Cold Beverages,Western,120,35,Yes,3,85,70.8,5,Active
+ITM077,Cold Coffee,Cold Beverages,Western,160,50,Yes,4,110,68.8,5,Active
+ITM078,Orange Soda,Cold Beverages,Western,100,28,Yes,2,72,72.0,5,Active
+ITM079,Lemon Iced Tea,Cold Beverages,Western,130,35,Yes,3,95,73.1,5,Active
+ITM080,Mint Cooler,Cold Beverages,Western,140,40,Yes,4,100,71.4,5,Active
+ITM081,Jaljeera,Cold Beverages,Indian,90,22,Yes,3,68,75.6,5,Active
+ITM082,Rose Milk,Cold Beverages,Indian,120,30,Yes,4,90,75.0,5,Active
+ITM083,Badam Milk,Cold Beverages,Indian,150,40,Yes,5,110,73.3,5,Active
+ITM084,Nimbu Pani,Cold Beverages,Indian,100,22,Yes,3,78,78.0,5,Active
+ITM085,Aam Panna,Cold Beverages,Indian,130,35,Yes,4,95,73.1,5,Active
+ITM086,Tomato Soup,Starter,International,140,40,Yes,7,100,71.4,5,Active
+ITM087,Minestrone Soup,Starter,Italian,160,45,Yes,8,115,71.9,5,Active
+ITM088,Garlic Breadsticks,Starter,Italian,170,50,Yes,8,120,70.6,5,Active
+ITM089,Masala Papad,Sides,Indian,60,10,Yes,3,50,83.3,5,Active
+ITM090,Boondi Raita,Sides,Indian,100,25,Yes,4,75,75.0,5,Active
+ITM091,Gulab Jamun,Desserts,Indian,120,35,Yes,4,85,70.8,5,Active
+ITM092,Rasgulla,Desserts,Indian,110,30,Yes,4,80,72.7,5,Active
+ITM093,Brownie with Ice Cream,Desserts,Western,180,60,Yes,6,120,66.7,5,Active
+ITM094,Chocolate Lava Cake,Desserts,Western,200,70,Yes,7,130,65.0,5,Active
+ITM095,Ice Cream Sundae,Desserts,Western,160,50,Yes,5,110,68.8,5,Active
+ITM096,Masala Chai,Hot Beverages,Indian,60,15,Yes,3,45,75.0,5,Active
+ITM097,Filter Coffee,Hot Beverages,Indian,80,20,Yes,3,60,75.0,5,Active
+ITM098,Cappuccino,Hot Beverages,Western,140,45,Yes,4,95,67.9,5,Active
+ITM099,Latte,Hot Beverages,Western,150,50,Yes,4,100,66.7,5,Active
+ITM100,Hot Chocolate,Hot Beverages,Western,160,55,Yes,5,105,65.6,5,Active

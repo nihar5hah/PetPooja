@@ -1,0 +1,90 @@
+{
+  "base_url_placeholder": "https://4252-202-179-156-98.ngrok-free.app",
+  "functions": [
+    {
+      "name": "validate_menu_item",
+      "description": "Validate that the requested menu item exists before adding it to the order.",
+      "method": "POST",
+      "url": "https://4252-202-179-156-98.ngrok-free.app/validate-item",
+      "content_type": "application/json",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "item_name": {
+            "type": "string",
+            "description": "The menu item name spoken by the customer."
+          }
+        },
+        "required": ["item_name"]
+      }
+    },
+    {
+      "name": "get_combo_recommendations",
+      "description": "Fetch the strongest combo recommendations for a validated menu item.",
+      "method": "GET",
+      "url": "https://4252-202-179-156-98.ngrok-free.app/combo-recommendations?format=simple&item_name={{item_name}}",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "item_name": {
+            "type": "string",
+            "description": "The validated base menu item."
+          }
+        },
+        "required": ["item_name"]
+      }
+    },
+    {
+      "name": "finalize_order",
+      "description": "Create a confirmed order after the customer approves the final cart.",
+      "method": "POST",
+      "url": "https://4252-202-179-156-98.ngrok-free.app/create-order",
+      "content_type": "application/json",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "item_name": { "type": "string" },
+                "quantity": { "type": "integer", "minimum": 1 }
+              },
+              "required": ["item_name", "quantity"]
+            }
+          },
+          "source": {
+            "type": "string",
+            "default": "voice_agent"
+          },
+          "customer_phone": {
+            "type": "string"
+          },
+          "call_id": {
+            "type": "string"
+          }
+        },
+        "required": ["items"]
+      }
+    },
+    {
+      "name": "add_item_to_order",
+      "description": "Keep the current order cart in agent memory. This is an agent-side helper and does not call the backend.",
+      "method": "agent_memory",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "item_name": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": ["item_name", "quantity"]
+      }
+    }
+  ]
+}

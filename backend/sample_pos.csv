@@ -1,0 +1,15 @@
+order_id,transaction_date,item_name,category,quantity,unit_price,food_cost_per_unit,line_revenue,line_contribution_margin
+ORD-001,2026-03-01,Pizza,Main,1,300,180,300,120
+ORD-001,2026-03-01,Coke,Beverage,1,60,20,60,40
+ORD-002,2026-03-01,Pizza,Main,1,300,180,300,120
+ORD-002,2026-03-01,Garlic Bread,Side,1,120,45,120,75
+ORD-003,2026-03-02,Pizza,Main,1,300,180,300,120
+ORD-003,2026-03-02,Coke,Beverage,1,60,20,60,40
+ORD-004,2026-03-03,Burger,Main,1,250,170,250,80
+ORD-004,2026-03-03,Fries,Side,1,90,35,90,55
+ORD-005,2026-03-03,Pizza,Main,1,300,180,300,120
+ORD-005,2026-03-03,Garlic Bread,Side,1,120,45,120,75
+ORD-006,2026-03-04,Pizza,Main,1,300,180,300,120
+ORD-006,2026-03-04,Coke,Beverage,1,60,20,60,40
+ORD-007,2026-03-04,Paneer Pizza,Main,1,340,210,340,130
+ORD-007,2026-03-04,Garlic Bread,Side,1,120,45,120,75
