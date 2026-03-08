@@ -34,6 +34,7 @@ const QUADRANT_STYLES: Record<string, { icon: typeof Star; border: string; chip:
 };
 
 export function MenuMatrixTab({ data }: { data: MenuMatrixView }) {
+  const quadrants = Array.isArray(data?.quadrants) ? data.quadrants : [];
   return (
     <div className="space-y-4">
       <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
@@ -46,7 +47,7 @@ export function MenuMatrixTab({ data }: { data: MenuMatrixView }) {
       </div>
 
       <div className="grid grid-cols-1 gap-4 xl:grid-cols-4">
-        {data.quadrants.map((quadrant, index) => {
+        {quadrants.map((quadrant, index) => {
           const style = QUADRANT_STYLES[quadrant.key] ?? QUADRANT_STYLES.laggards;
           const Icon = style.icon;
           return (
@@ -72,7 +73,7 @@ export function MenuMatrixTab({ data }: { data: MenuMatrixView }) {
                 </CardHeader>
                 <CardContent className="pt-0">
                   <div className="flex flex-wrap gap-2">
-                    {quadrant.items.map((item) => (
+                    {(Array.isArray(quadrant.items) ? quadrant.items : []).map((item) => (
                       <div key={item.item_name} className={`rounded-lg border px-2.5 py-2 text-xs ${style.chip}`}>
                         <div className="font-medium text-foreground">{item.item_name}</div>
                         <div className="mt-0.5 text-[11px]">{item.margin_pct.toFixed(1)}% margin</div>

@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PetPooja Hackathon Final Submission</title>
+  <style>
+    :root {
+      --text: #172033;
+      --muted: #546179;
+      --border: #d9dfeb;
+      --accent: #0f766e;
+      --accent-soft: #edf9f7;
+      --bg: #ffffff;
+      --heading: #0f172a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f4f7fb;
+      color: var(--text);
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    .page {
+      width: min(960px, calc(100vw - 48px));
+      margin: 24px auto;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 18px 60px rgba(15, 23, 42, 0.08);
+      overflow: hidden;
+    }
+
+    .hero {
+      padding: 48px 56px 32px;
+      background: linear-gradient(135deg, #ecfeff 0%, #f8fafc 45%, #f0fdf4 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 18px 0 12px;
+      color: var(--heading);
+      font-size: 40px;
+      line-height: 1.12;
+    }
+
+    .subtitle {
+      margin: 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .content {
+      padding: 36px 56px 56px;
+    }
+
+    h2 {
+      margin: 34px 0 12px;
+      color: var(--heading);
+      font-size: 24px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+
+    h3 {
+      margin: 24px 0 8px;
+      color: var(--heading);
+      font-size: 18px;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    ul, ol {
+      margin: 10px 0 10px 22px;
+      padding: 0;
+    }
+
+    li {
+      margin: 6px 0;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin: 20px 0;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      background: #fcfdff;
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 20px;
+      font-size: 14px;
+    }
+
+    .table th,
+    .table td {
+      border: 1px solid var(--border);
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .table th {
+      background: #f8fafc;
+      color: var(--heading);
+      font-weight: 700;
+    }
+
+    .code {
+      margin: 12px 0;
+      padding: 14px 16px;
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 12px;
+      overflow-x: auto;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 13px;
+      line-height: 1.55;
+      white-space: pre-wrap;
+    }
+
+    .note {
+      margin: 18px 0;
+      padding: 14px 16px;
+      border-left: 4px solid var(--accent);
+      background: var(--accent-soft);
+      border-radius: 0 12px 12px 0;
+    }
+
+    .footer {
+      margin-top: 40px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        width: 100%;
+        margin: 0;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .hero,
+      .content {
+        padding-left: 28px;
+        padding-right: 28px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        width: calc(100vw - 20px);
+        margin: 10px auto;
+      }
+
+      .hero,
+      .content {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="eyebrow">Hackathon Final Submission</div>
+      <h1>PetPooja</h1>
+      <p class="subtitle">
+        An AI restaurant ordering and revenue intelligence platform that connects voice ordering,
+        menu validation, combo recommendations, transactional persistence, and live business analytics.
+      </p>
+    </section>
+
+    <section class="content">
+      <h2>1. Executive Summary</h2>
+      <p>
+        PetPooja is designed to solve a real restaurant operations problem: voice ordering, upsell intelligence,
+        and business analytics usually live in disconnected systems. Orders may be captured manually or through a voice
+        layer, but they often do not feed back into the restaurant's revenue intelligence loop in real time.
+      </p>
+      <p>
+        PetPooja connects these pieces into one workflow. A voice agent can validate spoken menu items against a
+        structured dataset, recommend relevant combos from historical POS transaction patterns, create and persist the
+        final order, and immediately update the analytics layer powering the dashboard. This means every confirmed order
+        becomes both an operational event and an analytics event.
+      </p>
+      <p>
+        The system is implemented using a FastAPI backend, a Next.js dashboard, Supabase PostgreSQL with Realtime,
+        Retell for the voice agent, and ngrok for development-time public exposure.
+      </p>
+
+      <h2>2. Problem Statement</h2>
+      <p>Restaurants commonly face three operational gaps:</p>
+      <ol>
+        <li>Orders taken through conversation can contain transcription or menu matching errors.</li>
+        <li>Upsells are often based on staff habit rather than data-backed purchase patterns.</li>
+        <li>Business dashboards do not reflect the impact of newly placed orders immediately.</li>
+      </ol>
+      <p>
+        In voice-ordering scenarios, this problem gets worse. Spoken item names may be imprecise, customers may order
+        several items in a single sentence, and agents need to keep the interaction natural while still being accurate.
+        At the same time, restaurant owners want every order to improve visibility into revenue, popularity, and combo behavior.
+      </p>
+      <p>
+        PetPooja addresses this by combining voice-safe APIs, structured order persistence, analytics recomputation,
+        and dashboard synchronization into one system.
+      </p>
+
+      <h2>3. Solution Overview</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Conversation Layer</h3>
+          <p>Retell handles the customer-facing voice interaction and uses backend functions for validation, combo lookup, and order finalization.</p>
+        </div>
+        <div class="card">
+          <h3>Application Layer</h3>
+          <p>FastAPI exposes endpoints for menu retrieval, item validation, combo recommendations, voice webhooks, order creation, analytics, and dashboard data.</p>
+        </div>
+        <div class="card">
+          <h3>Data & Intelligence Layer</h3>
+          <p>Supabase PostgreSQL stores orders, order items, transactions, metrics, combo rules, voice logs, and failure queues.</p>
+        </div>
+        <div class="card">
+          <h3>Presentation Layer</h3>
+          <p>Next.js presents KPIs, menu engineering, combo insights, pricing suggestions, strategy cards, and order monitoring with realtime refresh.</p>
+        </div>
+      </div>
+
+      <h2>4. System Architecture</h2>
+      <div class="code">Customer Call
+    |
+    v
+Retell Voice Agent
+    |
+    | function calls / webhook
+    v
+FastAPI Backend
+    |-- /menu
+    |-- /validate-item
+    |-- /combo-recommendations
+    |-- /create-order
+    |-- /voice/retell-webhook
+    |-- /dashboard/*
+    |-- /extended-analytics/*
+    v
+Supabase PostgreSQL
+    |-- orders
+    |-- order_items
+    |-- pos_transactions
+    |-- menu_metrics
+    |-- combo_rules
+    |-- voice_call_logs
+    |-- failed_order_queue
+    v
+Next.js Dashboard
+    |
+    v
+Realtime KPI + order + combo updates</div>
+
+      <p>
+        The architecture deliberately keeps the integration path simple: the voice agent never writes directly to the database.
+        All order-related decisions flow through the backend, which centralizes validation, recommendation logic, persistence,
+        and analytics synchronization.
+      </p>
+
+      <h2>5. Core Features</h2>
+
+      <h3>5.1 Menu Validation</h3>
+      <p>
+        The backend validates customer-requested items using the active menu dataset. It supports alias-based and fuzzy matching
+        to handle transcription errors while still preventing invalid orders.
+      </p>
+
+      <h3>5.2 Combo Recommendations</h3>
+      <p>
+        Combo suggestions are generated from historical transaction behavior. The system mines association rules using support,
+        confidence, lift, and derived combo scores, then exposes a simplified voice-safe recommendation format for the Retell agent.
+      </p>
+
+      <h3>5.3 Structured Order Creation</h3>
+      <p>
+        On confirmation, the backend creates an order header, line items, and mirrored analytics transaction rows.
+        This ensures the same confirmed order is visible both operationally and analytically.
+      </p>
+
+      <h3>5.4 Automatic Analytics Refresh</h3>
+      <p>
+        After a confirmed order is stored, menu metrics and combo rules are recomputed. Supabase Realtime then broadcasts changes
+        so the dashboard can refresh automatically.
+      </p>
+
+      <h3>5.5 Dashboard Intelligence</h3>
+      <p>
+        The dashboard provides visibility into total orders, revenue, profit, menu engineering classes, combo performance,
+        price opportunities, hidden gems, and watch-list items.
+      </p>
+
+      <h2>6. End-to-End Workflow</h2>
+      <ol>
+        <li>A customer calls the voice assistant.</li>
+        <li>The assistant extracts the requested items and quantities.</li>
+        <li>Each item is validated against the menu dataset.</li>
+        <li>The assistant requests combo recommendations for a validated main item.</li>
+        <li>The customer accepts or declines suggested add-ons.</li>
+        <li>The assistant summarizes the final order and asks for confirmation.</li>
+        <li>On confirmation, the backend creates the order and order items.</li>
+        <li>The backend inserts transaction rows into the analytics dataset.</li>
+        <li>Analytics recompute and database change events are published.</li>
+        <li>The dashboard refreshes and reflects the newly placed order.</li>
+      </ol>
+
+      <div class="note">
+        The most important design choice is that confirmed voice orders are written into both operational tables and analytics fact tables.
+        This removes the lag between ordering and business visibility.
+      </div>
+
+      <h2>7. Technical Implementation</h2>
+
+      <h3>Backend Stack</h3>
+      <ul>
+        <li>FastAPI 0.115</li>
+        <li>SQLAlchemy 2.0</li>
+        <li>PostgreSQL via psycopg 3</li>
+        <li>pandas for dataset and metric processing</li>
+        <li>mlxtend for association rule mining</li>
+        <li>Pydantic 2 for API schemas</li>
+      </ul>
+
+      <h3>Frontend Stack</h3>
+      <ul>
+        <li>Next.js 14 and React 18</li>
+        <li>Tailwind CSS 4</li>
+        <li>Framer Motion for UI motion</li>
+        <li>Recharts for analytics visualization</li>
+        <li>Supabase JS client for realtime subscriptions</li>
+      </ul>
+
+      <h3>Data Sources</h3>
+      <ul>
+        <li><strong>Menu_Items_Set2.csv</strong>: menu metadata, pricing, food cost, margin, category, item status</li>
+        <li><strong>POS_Transactions_Set2.csv</strong>: historical order lines used for combo mining and menu analytics</li>
+      </ul>
+
+      <h2>8. API and Integration Summary</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Endpoint</th>
+            <th>Method</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>/menu</td>
+            <td>GET</td>
+            <td>Returns active menu items for voice-agent use.</td>
+          </tr>
+          <tr>
+            <td>/validate-item</td>
+            <td>POST</td>
+            <td>Validates a spoken item against the menu dataset.</td>
+          </tr>
+          <tr>
+            <td>/combo-recommendations</td>
+            <td>GET</td>
+            <td>Returns detailed or simplified combo suggestions.</td>
+          </tr>
+          <tr>
+            <td>/create-order</td>
+            <td>POST</td>
+            <td>Creates a confirmed order and syncs analytics data.</td>
+          </tr>
+          <tr>
+            <td>/voice/retell-webhook</td>
+            <td>POST</td>
+            <td>Handles webhook-driven voice-order flows.</td>
+          </tr>
+          <tr>
+            <td>/dashboard/*</td>
+            <td>GET</td>
+            <td>Provides dashboard summaries, menu engineering, combos, orders, logs, and failures.</td>
+          </tr>
+          <tr>
+            <td>/extended-analytics/*</td>
+            <td>GET</td>
+            <td>Provides deeper KPI, pricing, basket, and strategy views.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>9. Database and Data Model</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Table</th>
+            <th>Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>orders</td>
+            <td>Stores confirmed order headers.</td>
+          </tr>
+          <tr>
+            <td>order_items</td>
+            <td>Stores line items for each order.</td>
+          </tr>
+          <tr>
+            <td>pos_transactions</td>
+            <td>Stores line-level transactional facts used by analytics.</td>
+          </tr>
+          <tr>
+            <td>menu_metrics</td>
+            <td>Stores derived menu engineering metrics.</td>
+          </tr>
+          <tr>
+            <td>combo_rules</td>
+            <td>Stores mined item association rules for recommendation logic.</td>
+          </tr>
+          <tr>
+            <td>voice_call_logs</td>
+            <td>Stores voice interaction traces and payloads.</td>
+          </tr>
+          <tr>
+            <td>failed_order_queue</td>
+            <td>Stores failed persistence attempts for retry.</td>
+          </tr>
+          <tr>
+            <td>menu_aliases</td>
+            <td>Stores alias mappings to improve spoken item resolution.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>10. Setup and Run Instructions</h2>
+
+      <h3>Backend Setup</h3>
+      <div class="code">cd backend
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env
+PYTHONPATH=. python -m app.db.init_db
+uvicorn app.main:app --reload</div>
+
+      <h3>Seed Datasets</h3>
+      <div class="code">cd backend
+source .venv/bin/activate
+PYTHONPATH=. python scripts/seed_set2_datasets.py --replace</div>
+
+      <h3>Frontend Setup</h3>
+      <div class="code">cd frontend
+cp .env.example .env.local
+npm install
+npm run dev</div>
+
+      <h3>Realtime Setup</h3>
+      <p>Enable Supabase Realtime for the required tables using the SQL in the infrastructure folder.</p>
+
+      <h3>ngrok Setup</h3>
+      <div class="code">./scripts/start_ngrok.sh 8000</div>
+
+      <h2>11. Demo and Judging Flow</h2>
+      <ol>
+        <li>Start backend and frontend services.</li>
+        <li>Seed the provided CSV datasets.</li>
+        <li>Open the dashboard and explain the analytics views.</li>
+        <li>Demonstrate a customer ordering a main item.</li>
+        <li>Show item validation and upsell suggestion behavior.</li>
+        <li>Confirm the order and show the backend success response.</li>
+        <li>Return to the dashboard and show order, revenue, and combo visibility updating.</li>
+      </ol>
+
+      <h2>12. Validation and Testing Evidence</h2>
+      <p>The project includes staged verification artifacts and validation scripts. The documented checks cover:</p>
+      <ul>
+        <li>backend unit tests</li>
+        <li>module compile checks</li>
+        <li>dataset seeding validation</li>
+        <li>voice flow simulation</li>
+        <li>stage 7 integration validation</li>
+        <li>frontend production build validation</li>
+      </ul>
+
+      <div class="code">cd backend
+source .venv/bin/activate
+PYTHONPATH=. pytest -q
+PYTHONPATH=. python -m compileall app
+PYTHONPATH=. python -u scripts/stage5_fresh_check.py
+PYTHONPATH=. python -u scripts/stage6_voice_validation.py
+PYTHONPATH=. python -u scripts/stage7_integration_validation.py
+
+cd frontend
+npm install
+npm run build</div>
+
+      <p>
+        Existing verification notes confirm that the system supports pending and confirmed voice flows, persists confirmed orders,
+        serves dashboard APIs correctly, and compiles the frontend successfully.
+      </p>
+
+      <h2>13. Challenges and Tradeoffs</h2>
+      <ul>
+        <li>Realtime analytics recompute inside the order path improves demo visibility but is less scalable than an async job queue.</li>
+        <li>ngrok is excellent for hackathon development but introduces temporary public URLs and manual reconfiguration.</li>
+        <li>Fuzzy item matching improves voice usability but requires thresholds to avoid incorrect substitutions.</li>
+        <li>Writing confirmed orders into analytics tables simplifies live insight updates but couples operational writes with analytics freshness.</li>
+      </ul>
+
+      <h2>14. Future Improvements</h2>
+      <ol>
+        <li>Move recompute workloads to background processing.</li>
+        <li>Add production-grade authentication and role-based access control.</li>
+        <li>Support multi-restaurant tenancy more explicitly.</li>
+        <li>Add richer voice-session analytics and QA views.</li>
+        <li>Improve failure queue observability and retries.</li>
+        <li>Replace development-only ngrok exposure with stable production deployment.</li>
+      </ol>
+
+      <h2>15. Closing Summary</h2>
+      <p>
+        PetPooja demonstrates a full-stack AI ordering workflow in which a customer conversation becomes a validated order,
+        a business transaction, and a live analytics signal. Its strength is not only in voice interaction or dashboarding alone,
+        but in how the system connects both sides into a single revenue intelligence loop.
+      </p>
+
+      <div class="footer">
+        Prepared as a final hackathon submission document for PetPooja.
+      </div>
+    </section>
+  </main>
+</body>
+</html>

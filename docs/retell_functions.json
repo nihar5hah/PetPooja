@@ -1,11 +1,11 @@
 {
-  "base_url_placeholder": "https://4252-202-179-156-98.ngrok-free.app",
+  "base_url_placeholder": "https://unsummarised-nondexterous-kolten.ngrok-free.dev",
   "functions": [
     {
       "name": "validate_menu_item",
       "description": "Validate that the requested menu item exists before adding it to the order.",
       "method": "POST",
-      "url": "https://4252-202-179-156-98.ngrok-free.app/validate-item",
+      "url": "https://unsummarised-nondexterous-kolten.ngrok-free.dev/validate-item",
       "content_type": "application/json",
       "parameters": {
         "type": "object",
@@ -22,7 +22,7 @@
       "name": "get_combo_recommendations",
       "description": "Fetch the strongest combo recommendations for a validated menu item.",
       "method": "GET",
-      "url": "https://4252-202-179-156-98.ngrok-free.app/combo-recommendations?format=simple&item_name={{item_name}}",
+      "url": "https://unsummarised-nondexterous-kolten.ngrok-free.dev/combo-recommendations?format=simple&item_name={{item_name}}",
       "parameters": {
         "type": "object",
         "properties": {
@@ -38,7 +38,7 @@
       "name": "finalize_order",
       "description": "Create a confirmed order after the customer approves the final cart.",
       "method": "POST",
-      "url": "https://4252-202-179-156-98.ngrok-free.app/create-order",
+      "url": "https://unsummarised-nondexterous-kolten.ngrok-free.dev/create-order",
       "content_type": "application/json",
       "parameters": {
         "type": "object",

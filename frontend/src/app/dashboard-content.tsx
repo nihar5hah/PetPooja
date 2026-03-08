@@ -99,6 +99,10 @@ export function DashboardContent({
   const [kpis, setKPIs] = useState(initialKPIs);
   const [categories, setCategories] = useState(initialCategories);
   const [loading, setLoading] = useState(false);
+  const safeMenuEng = {
+    buckets: Array.isArray(menuEng?.buckets) ? menuEng.buckets : [],
+    items: Array.isArray(menuEng?.items) ? menuEng.items : [],
+  };
 
   async function refresh() {
     setLoading(true);
@@ -131,7 +135,7 @@ export function DashboardContent({
     void refresh();
   }, [refreshKey]);
 
-  const topItems = menuEng.items.slice(0, 6).map((it) => ({
+  const topItems = safeMenuEng.items.slice(0, 6).map((it) => ({
     name: it.item_name.length > 18 ? it.item_name.slice(0, 18) + "…" : it.item_name,
     revenue: it.total_revenue,
   }));
@@ -199,7 +203,7 @@ export function DashboardContent({
             <ResponsiveContainer width="100%" height={220}>
               <PieChart>
                 <Pie
-                  data={menuEng.buckets}
+                  data={safeMenuEng.buckets}
                   dataKey="item_count"
                   nameKey="menu_class"
                   cx="50%"
@@ -209,7 +213,7 @@ export function DashboardContent({
                   strokeWidth={2}
                   stroke="#09090b"
                 >
-                  {menuEng.buckets.map((b) => (
+                  {safeMenuEng.buckets.map((b) => (
                     <Cell key={b.menu_class} fill={PIE_COLORS[b.menu_class] ?? "#555"} />
                   ))}
                 </Pie>
@@ -225,7 +229,7 @@ export function DashboardContent({
               </PieChart>
             </ResponsiveContainer>
             <div className="flex flex-wrap justify-center gap-3 mt-2">
-              {menuEng.buckets.map((b) => (
+              {safeMenuEng.buckets.map((b) => (
                 <div key={b.menu_class} className="flex items-center gap-1.5 text-xs text-muted-foreground">
                   <div
                     className="size-2.5 rounded-full"

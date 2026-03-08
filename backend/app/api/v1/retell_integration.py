@@ -76,6 +76,16 @@ def create_order(
     restaurant_id: str = "default_restaurant",
     db: Session = Depends(get_db),
 ):
+    if not payload.items:
+        return CreateOrderOut(
+            order_id="none",
+            order_value=0.0,
+            order_profit=0.0,
+            items_count=0,
+            analytics_updated=False,
+            error="No items were provided. Please tell me what you would like to order.",
+        )
+
     candidates = _active_menu_candidates()
     if not candidates:
         raise HTTPException(status_code=503, detail="Menu dataset is unavailable")

@@ -32,6 +32,28 @@ import type {
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000";
 const RESTAURANT_ID = process.env.NEXT_PUBLIC_RESTAURANT_ID || "default_restaurant";
 
+function normalizeDashboardMenuEngineering(payload: unknown): DashboardMenuEngineering {
+  const value = (payload ?? {}) as Partial<DashboardMenuEngineering>;
+  return {
+    buckets: Array.isArray(value.buckets) ? value.buckets : [],
+    items: Array.isArray(value.items) ? value.items : [],
+  };
+}
+
+function normalizeMenuMatrixView(payload: unknown): MenuMatrixView {
+  const value = (payload ?? {}) as Partial<MenuMatrixView> & { quadrants?: Array<{ items?: unknown[] }> };
+  return {
+    units_median: typeof value.units_median === "number" ? value.units_median : 0,
+    margin_median: typeof value.margin_median === "number" ? value.margin_median : 0,
+    quadrants: Array.isArray(value.quadrants)
+      ? value.quadrants.map((quadrant) => ({
+          ...quadrant,
+          items: Array.isArray(quadrant.items) ? quadrant.items : [],
+        }))
+      : [],
+  } as MenuMatrixView;
+}
+
 async function apiGet<T>(path: string): Promise<T> {
   const response = await fetch(`${API_BASE_URL}${path}`, {
     cache: "no-store",
@@ -64,7 +86,9 @@ export function getDashboardSummary(): Promise<DashboardSummary> {
 }
 
 export function getMenuEngineering(): Promise<DashboardMenuEngineering> {
-  return apiGet<DashboardMenuEngineering>(`/dashboard/menu-engineering?restaurant_id=${RESTAURANT_ID}`);
+  return apiGet<DashboardMenuEngineering>(`/dashboard/menu-engineering?restaurant_id=${RESTAURANT_ID}`).then(
+    normalizeDashboardMenuEngineering,
+  );
 }
 
 export function getDashboardCombos(): Promise<DashboardCombo[]> {
@@ -163,7 +187,9 @@ export function getPriceOptimization(): Promise<PriceOptimization[]> {
 }
 
 export function getMenuMatrixView(): Promise<MenuMatrixView> {
-  return apiGet<MenuMatrixView>(`/extended-analytics/menu-matrix-view?restaurant_id=${RESTAURANT_ID}`);
+  return apiGet<MenuMatrixView>(`/extended-analytics/menu-matrix-view?restaurant_id=${RESTAURANT_ID}`).then(
+    normalizeMenuMatrixView,
+  );
 }
 
 export function getComboCards(limit = 30): Promise<ComboCard[]> {

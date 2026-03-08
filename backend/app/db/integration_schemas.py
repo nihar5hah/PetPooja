@@ -28,7 +28,7 @@ class CreateOrderItemIn(BaseModel):
 
 
 class CreateOrderIn(BaseModel):
-    items: list[CreateOrderItemIn] = Field(min_length=1)
+    items: list[CreateOrderItemIn] = Field(default_factory=list)
     source: str = "voice_agent"
     customer_phone: str = ""
     call_id: str | None = None
@@ -40,3 +40,4 @@ class CreateOrderOut(BaseModel):
     order_profit: float
     items_count: int
     analytics_updated: bool = True
+    error: str | None = None
